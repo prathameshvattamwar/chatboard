@@ -1,0 +1,211 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    line-height: 1.6;
+    color: #333;
+    background-color: #f7f8fc;
+}
+
+/* Header Styles */
+header {
+    background-color: #24292e;
+    color: #fff;
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between; /* Space between logo and nav links */
+    align-items: center;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 24px;
+    font-weight: 600;
+    white-space: nowrap; /* Prevents wrapping of the logo */
+}
+
+.hamburger {
+    display: none;
+    font-size: 1.5em;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: flex-end; /* Aligns the nav links to the right */
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1; /* Allows the nav links to fill the remaining space */
+}
+
+nav ul li {
+    margin: 0 5px;
+    font-size: 14px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 6px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+nav ul li a:hover {
+    background-color: #0366d6;
+    color: #fff;
+    border-radius: 5px;
+}
+
+/* Responsive Styles for Hamburger Menu */
+@media (max-width: 992px) {
+    .hamburger {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #24292e;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        padding: 0;
+    }
+
+    nav ul li {
+        width: 100%;
+        text-align: center;
+        margin: 0;
+    }
+
+    nav ul li a {
+        padding: 15px;
+        border-top: 1px solid #333;
+    }
+
+    nav ul li a:hover {
+        background-color: #0366d6;
+    }
+
+    nav ul.show {
+        display: flex;
+    }
+}
+
+/* Hero Section Styles */
+#hero {
+    background-image: linear-gradient(to right, #007bff, #6610f2);
+    color: #fff;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+#hero h1 {
+    font-size: 3em;
+    margin-bottom: 0px;
+    font-weight: 700;
+}
+
+#hero p {
+    font-size: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+    color: #ddd;
+}
+
+/* Section Styles */
+main section {
+    padding: 40px 20px;
+    background-color: #fff;
+    margin: 20px auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+}
+
+main section h2 {
+    font-size: 2.2em;
+    margin-bottom: 15px;
+    color: #24292e;
+    border-bottom: 3px solid #007bff;
+    display: inline-block;
+    padding-bottom: 5px;
+}
+
+main section h3 {
+    font-size: 1.8em;
+    margin-top: 30px;
+    color: #0366d6;
+}
+
+main section p,
+main section ul {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: #555;
+}
+
+main section ul {
+    list-style-type: disc;
+    padding-left: 40px;
+}
+
+main section ul li {
+    margin-bottom: 10px;
+}
+
+main section ul li::marker {
+    color: #007bff;
+}
+
+/* Footer Styles */
+footer {
+    background-color: #24292e;
+    color: #fff;
+    text-align: center;
+    padding: 20px 0;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    header nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    header nav ul li {
+        margin: 10px 0;
+    }
+
+    #hero h1 {
+        font-size: 2.2em;
+    }
+
+    #hero p {
+        font-size: 1em;
+    }
+
+    main section {
+        padding: 30px 15px;
+    }
+}

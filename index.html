@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Chatboard Project Plan</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/37df75b44e.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="nav-container">
+                <div class="logo">
+                    <h1>Chatboard Plan</h1>
+                </div>
+                <div class="hamburger" id="hamburger">
+                    <i class="fas fa-bars"></i>
+                </div>
+                <ul id="nav-menu">
+                    <li><a href="#overview">Platform Overview</a></li>
+                    <li><a href="#database">Database Structure</a></li>
+                    <li><a href="#auth">User Authentication</a></li>
+                    <li><a href="#dashboard">User Dashboard</a></li>
+                    <li><a href="#chat">Public Chat</a></li>
+                    <li><a href="#frontend">Frontend Design</a></li>
+                    <li><a href="#backend">Backend & API</a></li>
+                    <li><a href="#analytics">User Analytics</a></li>
+                    <li><a href="#testing">Testing & Deployment</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1>Public Chatboard Project Plan</h1>
+            <p>A comprehensive overview of the development plan for a public chat platform.</p>
+        </section>
+
+        <section id="overview">
+            <h2>Platform Overview</h2>
+            <p>This platform is a public chat application where users can post text, photos, and videos, with features like commenting, liking, reacting to posts, and downloading posts if enabled by the user.</p>
+            <h3>Tech Stack</h3>
+            <ul>
+                <li><strong>Frontend:</strong> HTML, CSS (Bootstrap), JavaScript (jQuery)</li>
+                <li><strong>Backend:</strong> Python (Flask Framework)</li>
+                <li><strong>Database:</strong> SQLite for data persistence</li>
+                <li><strong>Styling:</strong> Poppins font for UI</li>
+                <li><strong>User Authentication:</strong> Login, registration, and authorization via Flask sessions</li>
+            </ul>
+        </section>
+
+        <section id="database">
+            <h2>Database Structure</h2>
+            <p>We'll need multiple tables to handle users, posts, comments, reactions, etc.</p>
+            <h3>Users Table</h3>
+            <ul>
+                <li>id: Primary Key</li>
+                <li>username: Unique</li>
+                <li>email: Unique</li>
+                <li>password: Hashed</li>
+                <li>profile_picture: URL to the user's profile picture</li>
+                <li>download_enabled: Boolean (to control post download feature)</li>
+                <li>bio: Text (short bio)</li>
+                <li>created_at: Timestamp (user registration date)</li>
+            </ul>
+            <h3>Posts Table</h3>
+            <ul>
+                <li>id: Primary Key</li>
+                <li>user_id: Foreign Key (references Users table)</li>
+                <li>content: Text (for post text)</li>
+                <li>media_url: URL for photo/video upload</li>
+                <li>created_at: Timestamp (date of post creation)</li>
+                <li>downloads_enabled: Boolean (whether the post can be downloaded)</li>
+                <li>likes_count: Integer (total likes for the post)</li>
+            </ul>
+            <!-- Similar structures for Comments Table, Likes Table, and User Reactions Table -->
+        </section>
+
+        <section id="auth">
+            <h2>User Authentication & Authorization</h2>
+            <p>User registration and login are handled via Flask sessions. Only logged-in users can interact with the platform, while non-logged-in users can view posts but not interact.</p>
+            <h3>User Registration</h3>
+            <p>Users must provide a unique username, email, and password. Passwords should be securely hashed using tools like bcrypt or werkzeug.security.</p>
+            <h3>Login</h3>
+            <p>Users can log in with either their email or username. Flask sessions will manage user login states.</p>
+            <h3>Authorization</h3>
+            <p>Only logged-in users can post, comment, or like. Non-logged-in users can view the chat feed but cannot interact.</p>
+        </section>
+
+        <section id="dashboard">
+            <h2>User Dashboard Features</h2>
+            <p>The user dashboard allows users to manage their profiles, create and view posts, and interact with comments and reactions. Users can also manage their post download settings.</p>
+            <h3>Profile Management</h3>
+            <p>Users can upload a profile picture, update bio information, and enable/disable the option to allow downloads for their posts.</p>
+            <h3>Post Management</h3>
+            <p>Users can create new posts (text, images, or videos), view all past posts with likes, comments, etc., and view analytics on each post.</p>
+            <h3>Comment & Reaction Management</h3>
+            <p>Users can view and reply to comments and see who liked or reacted to their posts.</p>
+            <h3>Followers & Following Management</h3>
+            <p>Users can view and manage their followers and the users they are following.</p>
+        </section>
+        
+
+        <section id="chat">
+            <h2>Public Chat Features</h2>
+            <p>The public chat feed displays all posts in reverse chronological order. Users can like, react, and comment on posts, with the option to download media if enabled by the post author.</p>
+            <h3>Post Feed</h3>
+            <p>The post feed is publicly visible and shows posts including text, images, and videos.</p>
+            <h3>Likes and Reactions</h3>
+            <p>Users can like or react with predefined reactions like like, love, and laugh. Reactions are aggregated and displayed next to the post.</p>
+            <h3>Comments</h3>
+            <p>Users can comment on posts, and their comments are shown in a threaded manner below each post.</p>
+            <h3>Post Downloads</h3>
+            <p>Users can download the post’s media only if the post author has enabled it in their settings.</p>
+        </section>
+
+        <section id="frontend">
+            <h2>Frontend Design</h2>
+            <p>The design is responsive and mobile-friendly, utilizing Bootstrap for layout and Poppins font for styling. The chat layout includes a main feed, post creation form, and interactive elements like modals for comments.</p>
+            <h3>Responsive Design</h3>
+            <p>The design should be mobile-friendly using Bootstrap for a grid-based, responsive layout.</p>
+            <h3>Chat Layout</h3>
+            <p>The layout includes a main chat feed with user posts, media attachments, likes, reactions, and comments.</p>
+            <h3>Post Creation</h3>
+            <p>A user-friendly post creation form with a text box, file upload option, and submit button.</p>
+            <h3>UI Styling</h3>
+            <p>Use Poppins font throughout the platform for consistency. Bootstrap modals and alerts for interactivity (for creating posts, viewing comments, etc.).</p>
+        </section>
+
+        <section id="backend">
+            <h2>Backend & API Routes</h2>
+            <p>The backend is built with Flask, handling user management, post management, and analytics via API routes. Key routes include user registration, login, post creation, and fetching analytics data.</p>
+            <h3>API Routes</h3>
+            <p>
+                <strong>POST /register:</strong> Register new users. <br>
+                <strong>POST /login:</strong> User login. <br>
+                <strong>POST /logout:</strong> Log out the user. <br>
+                <strong>GET /profile:</strong> Fetch user profile and settings. <br>
+                <strong>POST /profile:</strong> Update profile settings. <br>
+                <strong>POST /create_post:</strong> Allow users to create new posts. <br>
+                <strong>GET /posts:</strong> Fetch all posts for the chat feed. <br>
+                <strong>POST /like_post:</strong> Like a post. <br>
+                <strong>POST /comment_post:</strong> Comment on a post. <br>
+                <strong>GET /post/&lt;id&gt;:</strong> Fetch a specific post's details. <br>
+                <strong>GET /post/&lt;id&gt;/analytics:</strong> View analytics for a particular post (likes, views, downloads). <br>
+                <strong>GET /download_post/&lt;id&gt;:</strong> Download post media if the author has enabled it. <br>
+                <strong>POST /follow_user/&lt;user_id&gt;:</strong> Follow the user with the specified `user_id`. <br>
+                <strong>DELETE /unfollow_user/&lt;user_id&gt;:</strong> Unfollow the user with the specified `user_id`. <br>
+                <strong>GET /followers:</strong> Get the list of users following the logged-in user. <br>
+                <strong>GET /following:</strong> Get the list of users the logged-in user is following.
+            </p>
+        </section>
+        
+
+        <section id="analytics">
+            <h2>User Analytics</h2>
+            <p>Analytics are provided at both the user and post levels, offering insights into user activity, post engagement, and download statistics.</p>
+            <h3>User-Level Analytics</h3>
+            <p>View the number of posts they have created, total likes and comments received on their posts, and the number of downloads enabled (if they opted for media download).</p>
+            <h3>Post-Level Analytics</h3>
+            <p>View the number of views, likes, comments, and downloads on each post.</p>
+        </section>
+
+        <section id="testing">
+            <h2>Testing & Deployment</h2>
+            <p>The application will undergo unit testing, UI testing, and security testing before deployment on platforms like Heroku or AWS. Static files will be hosted on services like AWS S3 or Cloudinary.</p>
+            <h3>Testing</h3>
+            <p>Unit Testing: Write tests for key routes like user registration, login, post creation, and interactions.</p>
+            <p>UI Testing: Ensure the frontend components (forms, buttons, etc.) are working correctly on different devices.</p>
+            <p>Security Testing: Test for SQL injection, XSS attacks, and CSRF vulnerabilities.</p>
+            <h3>Deployment</h3>
+            <p>Use Heroku or AWS for deployment of the Flask app. SQLite can be used in development, but for production, consider switching to PostgreSQL or MySQL.</p>
+            <p>Static File Hosting: Use AWS S3 or Cloudinary for storing media files (photos/videos).</p>
+            <p>Version Control: Use GitHub to manage the code and track progress.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>Public Chatboard Project Plan | &copy; 2024 Prathamesh V.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
